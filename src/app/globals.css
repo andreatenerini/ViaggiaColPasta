@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-brand: #0E5C7A;
+  --color-brand-dark: #08384A;
+  --color-brand-deeper: #052530;
+  --color-accent: #F2A03D;
+  --color-sand: #F7F2EA;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-sand);
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-display, Georgia, serif);
+  }
+}
+
+@layer components {
+  /* Layout */
+  .container-app {
+    @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-7 py-3.5 text-white font-semibold
+           shadow-brand-sm transition-all duration-200
+           hover:bg-brand-dark hover:shadow-brand-md hover:-translate-y-0.5
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2
+           active:translate-y-0;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-accent px-7 py-3.5 text-white font-semibold
+           shadow-accent-sm transition-all duration-200
+           hover:brightness-95 hover:shadow-lg hover:-translate-y-0.5
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2
+           active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-brand px-7 py-3.5 text-brand font-semibold
+           transition-all duration-200
+           hover:bg-brand hover:text-white hover:-translate-y-0.5
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2
+           active:translate-y-0;
+  }
+
+  .btn-ghost-white {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/50 px-7 py-3.5 text-white font-semibold
+           backdrop-blur-sm transition-all duration-200
+           hover:bg-white hover:text-brand hover:border-white hover:-translate-y-0.5
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2
+           active:translate-y-0;
+  }
+
+  /* Cards */
+  .card {
+    @apply rounded-2xl bg-white shadow-card ring-1 ring-black/5 overflow-hidden;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1;
+  }
+
+  /* Form */
+  .field-label {
+    @apply block text-sm font-medium text-gray-700 mb-1.5;
+  }
+
+  .field-input {
+    @apply w-full rounded-xl border-gray-200 bg-gray-50 shadow-sm
+           transition-all duration-150
+           focus:border-brand focus:ring-brand focus:bg-white focus:ring-1;
+  }
+
+  /* Typography helpers */
+  .section-label {
+    @apply block text-brand-accent uppercase tracking-[0.2em] text-xs font-bold;
+  }
+
+  .heading-display {
+    @apply font-display font-bold leading-tight text-brand-deeper;
+  }
+}

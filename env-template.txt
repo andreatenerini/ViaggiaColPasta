@@ -1,0 +1,50 @@
+# ──────────────────────────────────────────────────────────────────
+# Si Travel Perugia — template variabili d'ambiente
+#
+# COME USARLO:
+#   1) Copia questo file in `.env.local` nella stessa cartella:
+#         PowerShell:  Copy-Item env-template.txt .env.local
+#         Git Bash:    cp env-template.txt .env.local
+#   2) Apri `.env.local` e sostituisci i placeholder con i valori reali.
+#   3) `.env.local` NON va mai committato (è già in .gitignore).
+# ──────────────────────────────────────────────────────────────────
+
+# Database (Neon Postgres) — la connection string te l'ha passata Moreno
+DATABASE_URI=postgresql://neondb_owner:PASSWORD@HOST/DBNAME?sslmode=require
+
+# Secret Payload — qualsiasi stringa lunga e random (almeno 32 caratteri)
+PAYLOAD_SECRET=cambia-questa-stringa-con-una-random-lunga-e-segreta
+
+# URL del sito (in dev: http://localhost:3000)
+NEXT_PUBLIC_SERVER_URL=http://localhost:3000
+PAYLOAD_PUBLIC_SERVER_URL=http://localhost:3000
+
+# ─── Stripe ────────────────────────────────────────────────────────
+# Da dashboard.stripe.com → Developers → API keys
+STRIPE_SECRET_KEY=sk_test_xxx
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_xxx
+STRIPE_WEBHOOK_SECRET=whsec_xxx
+
+# ─── Resend (email transazionali) ──────────────────────────────────
+RESEND_API_KEY=re_xxx
+RESEND_FROM_EMAIL=noreply@sitravelperugia.it
+RESEND_REPLY_TO=moreno.maitini@sitravelperugia.it
+
+# ─── Vercel Blob (storage media) ───────────────────────────────────
+# Si configura dopo il primo deploy su Vercel
+BLOB_READ_WRITE_TOKEN=
+
+# ─── Contatti ──────────────────────────────────────────────────────
+# Numero WhatsApp di Moreno, formato internazionale senza + né spazi
+NEXT_PUBLIC_WHATSAPP_NUMBER=39000000000
+
+# ─── Tariffario preventivi (in centesimi: 5000 = 50,00 €) ──────────
+PREZZO_PREVENTIVO_TO_LUNGO_RAGGIO=5000
+PREZZO_PREVENTIVO_TO_MEDIO_RAGGIO=4000
+PREZZO_PREVENTIVO_TO_ITALIA_MARE=3000
+PREZZO_PREVENTIVO_TO_CROCIERE=4000
+PREZZO_PREVENTIVO_ITINERARIO_LIBERO=5000
+
+# Sconto fedeltà
+SCONTO_FEDELTA_SOGLIA=5
+SCONTO_FEDELTA_PERCENTUALE=10
