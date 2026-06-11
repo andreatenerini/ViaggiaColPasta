@@ -33,11 +33,16 @@ const config: Config = {
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4,0,0.6,1) infinite',
         'fade-up': 'fadeUp 0.5s ease forwards',
+        'hero-zoom': 'heroZoom 24s ease-in-out infinite alternate',
       },
       keyframes: {
         fadeUp: {
           from: { opacity: '0', transform: 'translateY(16px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        heroZoom: {
+          from: { transform: 'scale(1)' },
+          to: { transform: 'scale(1.12)' },
         },
       },
     },

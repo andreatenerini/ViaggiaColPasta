@@ -23,19 +23,15 @@ export function Header() {
         <div className="container-app flex items-center justify-between py-3.5">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
+          <Link href="/" className="flex items-center group" aria-label="SiTravel Perugia — home">
             <Image
-              src="/logo.jpeg"
-              alt="Si Travel Perugia"
-              width={40}
-              height={40}
-              className="h-10 w-10 rounded-xl object-contain"
+              src="/logo-perugia.png"
+              alt="SiTravel Perugia"
+              width={461}
+              height={99}
+              className="h-9 sm:h-10 w-auto object-contain"
               priority
             />
-            <div className="leading-none hidden sm:block">
-              <span className="text-lg font-bold text-brand font-display block">Si Travel</span>
-              <span className="text-[11px] text-gray-400 tracking-wide">Perugia</span>
-            </div>
           </Link>
 
           {/* Desktop Nav */}
@@ -95,9 +91,8 @@ export function Header() {
           {/* Panel */}
           <div className="absolute right-0 top-0 h-full w-72 bg-white shadow-2xl flex flex-col">
             <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-              <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
-                <Image src="/logo.jpeg" alt="Si Travel Perugia" width={32} height={32} className="h-8 w-8 rounded-lg object-contain" />
-                <span className="font-display font-bold text-brand text-lg">Si Travel</span>
+              <Link href="/" onClick={() => setOpen(false)} className="flex items-center">
+                <Image src="/logo-perugia.png" alt="SiTravel Perugia" width={461} height={99} className="h-8 w-auto object-contain" />
               </Link>
               <button
                 onClick={() => setOpen(false)}

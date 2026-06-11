@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function HomePage() {
   const wa = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
@@ -7,14 +8,23 @@ export default function HomePage() {
     <>
       {/* ─── HERO ─────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-brand-deeper min-h-[92vh] flex items-center">
-        {/* Gradient layers */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-deeper via-[#0a4a61] to-[#0f6d8a]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-deeper/90 via-transparent to-transparent" />
+        {/* Sfondo: foto reale Maldive con zoom lento cinematografico */}
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src="/hero-maldive.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center animate-hero-zoom motion-reduce:animate-none"
+          />
+        </div>
+        {/* Scrim per la leggibilità del testo (allineato a sinistra) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-deeper/95 via-brand-deeper/70 to-brand-deeper/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-deeper/85 via-transparent to-brand-deeper/25" />
 
-        {/* Decorative blobs */}
-        <div className="absolute top-[-5rem] right-[-5rem] w-[28rem] h-[28rem] rounded-full bg-brand-accent/10 blur-[80px] pointer-events-none" />
-        <div className="absolute bottom-[-4rem] left-[-4rem] w-[22rem] h-[22rem] rounded-full bg-brand/20 blur-[80px] pointer-events-none" />
-        <div className="absolute top-1/2 right-1/4 w-[16rem] h-[16rem] rounded-full bg-white/[0.03] blur-[60px] pointer-events-none" />
+        {/* Accent glow */}
+        <div className="absolute top-[-5rem] right-[-5rem] w-[28rem] h-[28rem] rounded-full bg-brand-accent/15 blur-[90px] pointer-events-none" />
 
         <div className="container-app relative z-10 py-24 md:py-36">
           <div className="max-w-3xl">

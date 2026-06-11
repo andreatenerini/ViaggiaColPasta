@@ -11,10 +11,14 @@ import { STATI_CATALOGO } from '@/lib/stati-catalogo'
  * (il secret si trova in .env.local)
  */
 export async function GET(req: NextRequest) {
+  // In produzione richiede il PAYLOAD_SECRET; in sviluppo è libero.
+  const isDev = process.env.NODE_ENV !== 'production'
   const secret = req.nextUrl.searchParams.get('secret')
-  if (!secret || secret !== process.env.PAYLOAD_SECRET) {
+  if (!isDev && (!secret || secret !== process.env.PAYLOAD_SECRET)) {
     return NextResponse.json({ error: 'Non autorizzato' }, { status: 401 })
   }
+  // Filtro opzionale per tipologia (es. ?tipologia=lungo-raggio)
+  const filtroTipologia = req.nextUrl.searchParams.get('tipologia')
 
   const payload = await getPayload({ config })
 
@@ -23,6 +27,7 @@ export async function GET(req: NextRequest) {
   const errors: string[] = []
 
   for (const gruppo of STATI_CATALOGO) {
+    if (filtroTipologia && gruppo.tipologia !== filtroTipologia) continue
     for (const nome of gruppo.stati) {
       const slug = nome
         .toLowerCase()

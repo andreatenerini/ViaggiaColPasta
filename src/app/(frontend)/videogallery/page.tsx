@@ -10,7 +10,12 @@ export default async function VideogalleryPage() {
   const payload = await getPayload({ config })
   const { docs: luoghi } = await payload.find({
     collection: 'luoghi',
-    where: { attivo: { equals: true } },
+    where: {
+      and: [
+        { attivo: { equals: true } },
+        { immaginiCopertina: { exists: true } },
+      ],
+    },
     sort: 'nome',
     limit: 100,
     depth: 1,

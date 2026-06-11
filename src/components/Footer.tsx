@@ -11,9 +11,11 @@ export function Footer() {
 
           {/* Brand column */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-5">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.jpeg" alt="Si Travel Perugia" className="h-10 w-auto rounded-xl object-contain" />
+            <div className="mb-5">
+              <span className="inline-flex bg-white rounded-xl px-4 py-2.5 shadow-sm">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/logo-perugia.png" alt="SiTravel Perugia" className="h-9 w-auto object-contain" />
+              </span>
             </div>
             <p className="text-white/60 text-sm leading-relaxed max-w-xs mb-4">
               Travel Designer. Preventivi personalizzati per viaggi di lungo raggio,
