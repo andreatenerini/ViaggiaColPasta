@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from 'next/font/google'
 import '../globals.css'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -32,6 +33,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
     <html lang="it" className={`${playfair.variable} ${inter.variable}`} suppressHydrationWarning>
       <body className="min-h-screen flex flex-col font-body antialiased">
         <Header />
+        <Breadcrumbs />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
