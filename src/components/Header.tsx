@@ -27,8 +27,8 @@ export function Header() {
             <Image
               src="/logo-perugia.png"
               alt="SiTravel Perugia"
-              width={461}
-              height={99}
+              width={457}
+              height={120}
               className="h-9 sm:h-10 w-auto object-contain"
               priority
             />
@@ -92,7 +92,7 @@ export function Header() {
           <div className="absolute right-0 top-0 h-full w-72 bg-white shadow-2xl flex flex-col">
             <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
               <Link href="/" onClick={() => setOpen(false)} className="flex items-center">
-                <Image src="/logo-perugia.png" alt="SiTravel Perugia" width={461} height={99} className="h-8 w-auto object-contain" />
+                <Image src="/logo-perugia.png" alt="SiTravel Perugia" width={457} height={120} className="h-8 w-auto object-contain" />
               </Link>
               <button
                 onClick={() => setOpen(false)}
