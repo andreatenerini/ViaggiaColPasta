@@ -34,5 +34,9 @@ export const Clienti: CollectionConfig = {
       name: 'note',
       type: 'textarea',
     },
+    // ─── Accesso area riservata (OTP) — campi tecnici, nascosti in admin ──
+    { name: 'otpHash', type: 'text', admin: { hidden: true } },
+    { name: 'otpScadenza', type: 'date', admin: { hidden: true } },
+    { name: 'otpTentativi', type: 'number', defaultValue: 0, admin: { hidden: true } },
   ],
 }

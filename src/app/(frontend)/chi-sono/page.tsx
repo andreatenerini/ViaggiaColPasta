@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata = { title: 'Chi sono' }
 
@@ -51,9 +52,15 @@ export default function ChiSonoPage() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
           {/* Avatar / foto */}
           <div className="lg:col-span-2">
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-brand to-brand-dark flex items-center justify-center relative overflow-hidden shadow-brand-md max-w-sm mx-auto lg:max-w-none">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent_60%)]" />
-              <span className="font-display text-white font-bold text-8xl opacity-40 select-none">MM</span>
+            <div className="aspect-square rounded-3xl relative overflow-hidden shadow-brand-md max-w-sm mx-auto lg:max-w-none">
+              <Image
+                src="/moreno.jpg"
+                alt="Moreno Maitini — Travel Designer"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 24rem, 40vw"
+                priority
+              />
             </div>
             <div className="mt-6 card p-5 flex flex-col gap-3">
               <div className="flex items-center gap-3 text-sm text-gray-600">

@@ -30,9 +30,12 @@ yarn-error.log*
 .env.development.local
 .env.production.local
 
-# Payload
+# Payload — i tipi sono rigenerati nel build (vedi script "build")
 src/payload-types.ts
 .payload
+
+# Upload locali (solo in dev senza Vercel Blob/R2): NON committare
+/media
 
 # Vercel
 .vercel

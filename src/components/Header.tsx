@@ -29,7 +29,7 @@ export function Header() {
               alt="Si Travel Perugia"
               width={40}
               height={40}
-              className="rounded-xl object-contain"
+              className="h-10 w-10 rounded-xl object-contain"
               priority
             />
             <div className="leading-none hidden sm:block">
@@ -51,8 +51,15 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Right: WhatsApp + hamburger */}
+          {/* Right: Area riservata + WhatsApp + hamburger */}
           <div className="flex items-center gap-3">
+            <Link
+              href="/area-riservata"
+              className="hidden md:inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-brand transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+              Area riservata
+            </Link>
             {wa && wa !== '39000000000' && (
               <a
                 href={waLink}
@@ -89,7 +96,7 @@ export function Header() {
           <div className="absolute right-0 top-0 h-full w-72 bg-white shadow-2xl flex flex-col">
             <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
               <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
-                <Image src="/logo.jpeg" alt="Si Travel Perugia" width={32} height={32} className="rounded-lg object-contain" />
+                <Image src="/logo.jpeg" alt="Si Travel Perugia" width={32} height={32} className="h-8 w-8 rounded-lg object-contain" />
                 <span className="font-display font-bold text-brand text-lg">Si Travel</span>
               </Link>
               <button
@@ -114,6 +121,14 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
+              <Link
+                href="/area-riservata"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 px-4 py-3 mt-1 border-t border-gray-100 text-gray-700 hover:text-brand hover:bg-brand/5 rounded-xl transition-colors font-medium text-sm"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                Area riservata
+              </Link>
             </nav>
 
             {wa && wa !== '39000000000' && (

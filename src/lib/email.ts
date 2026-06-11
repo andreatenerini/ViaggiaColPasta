@@ -44,3 +44,26 @@ export async function inviaEmailRingraziamento({
     html,
   })
 }
+
+export async function inviaCodiceAccesso({ to, codice }: { to: string; codice: string }) {
+  if (!resend) {
+    console.warn('[email] Resend non configurato — codice accesso per', to, '=', codice)
+    return
+  }
+  const html = `
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 480px; margin: auto; color: #1a1a1a;">
+      <h1 style="color: #0E5C7A; font-size: 20px;">Il tuo codice di accesso</h1>
+      <p>Usa questo codice per accedere alla tua area riservata e vedere lo storico dei preventivi:</p>
+      <p style="font-size: 34px; font-weight: 700; letter-spacing: 8px; color: #052530; background: #F7F2EA; border-radius: 12px; padding: 16px 0; text-align: center; margin: 24px 0;">${codice}</p>
+      <p style="color: #666; font-size: 14px;">Il codice scade tra 10 minuti. Se non hai richiesto l'accesso, ignora questa email.</p>
+      <p style="color: #666; font-size: 14px;">Si Travel Perugia</p>
+    </div>
+  `
+  await resend.emails.send({
+    from: `Si Travel Perugia <${fromEmail}>`,
+    to,
+    replyTo,
+    subject: 'Il tuo codice di accesso · Si Travel Perugia',
+    html,
+  })
+}
