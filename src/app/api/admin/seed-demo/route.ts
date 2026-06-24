@@ -2,6 +2,11 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
+// Il seed scarica immagini + 4 video da URL remoti: alza il limite della
+// function serverless (max consentito dal piano) per evitare il timeout.
+export const maxDuration = 60
+export const dynamic = 'force-dynamic'
+
 /**
  * Popola il sito con contenuti DEMO realistici (tema viaggiacolpasta.it):
  * Media + Luoghi con copertina + Offerte + Video, così videogallery e
