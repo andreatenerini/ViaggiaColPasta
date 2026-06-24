@@ -2,6 +2,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { buildConfig } from 'payload'
+import { it } from '@payloadcms/translations/languages/it'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { resendAdapter } from '@payloadcms/email-resend'
@@ -20,6 +21,11 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+  // Admin (CMS) in italiano
+  i18n: {
+    supportedLanguages: { it },
+    fallbackLanguage: 'it',
+  },
   admin: {
     user: Users.slug,
     meta: {
